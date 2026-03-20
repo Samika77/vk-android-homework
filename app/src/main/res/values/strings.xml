@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">VKAndroidHomework</string>
+    <string name="rustore_logo">RuStore</string>
+    <string name="categories_button">Категории</string>
 </resources>
