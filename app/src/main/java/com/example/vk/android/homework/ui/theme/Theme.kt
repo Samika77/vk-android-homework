@@ -12,6 +12,7 @@ import androidx.compose.ui.platform.LocalContext
 
 private val DarkColorScheme = darkColorScheme(
     primary = VkBlue,
+    primaryContainer = VkBlue.copy(alpha = 0.9f),
     secondary = VkGray,
     surface = VkDark,
     onPrimary = VkWhite,
@@ -20,6 +21,7 @@ private val DarkColorScheme = darkColorScheme(
 
 private val LightColorScheme = lightColorScheme(
     primary = VkBlue,
+    primaryContainer = VkBlue,
     secondary = VkGray,
     surface = VkWhite,
     onPrimary = VkWhite,
@@ -29,7 +31,7 @@ private val LightColorScheme = lightColorScheme(
 @Composable
 fun VKAndroidHomeworkTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    dynamicColor: Boolean = true,
+    dynamicColor: Boolean = false,
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {

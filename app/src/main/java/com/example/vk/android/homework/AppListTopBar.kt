@@ -36,7 +36,7 @@ fun AppListTopBar(
     Row(
         modifier = modifier
             .fillMaxWidth()
-            .background(MaterialTheme.colorScheme.primary)
+            .background(MaterialTheme.colorScheme.primaryContainer)
             .padding(16.dp),
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
