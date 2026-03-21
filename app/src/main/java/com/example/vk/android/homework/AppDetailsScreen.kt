@@ -28,6 +28,7 @@ import com.example.vk.android.homework.ui.theme.VKAndroidHomeworkTheme
 @Composable
 fun AppDetailsScreen(
     modifier: Modifier = Modifier,
+    onBackClick: () -> Unit,
 ) {
     val app = remember { getApp() }
 
@@ -41,9 +42,7 @@ fun AppDetailsScreen(
         contentWindowInsets = WindowInsets(0.dp),
         topBar = {
             Toolbar(
-                onBackClick = {
-
-                },
+                onBackClick = onBackClick,
                 onShareClick = {
 
                 }
@@ -129,6 +128,7 @@ private fun Preview() {
     VKAndroidHomeworkTheme {
         AppDetailsScreen(
             modifier = Modifier.fillMaxSize(),
+            onBackClick = {},
         )
     }
 }

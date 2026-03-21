@@ -14,18 +14,8 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             VKAndroidHomeworkTheme {
-                AppListScreen(
-                    modifier = Modifier.fillMaxSize(),
-                    appList = appList,
-                    onRuStoreClick = {
-
-                    },
-                    onCategoriesClick = {
-
-                    },
-                    onAppClick = {
-
-                    }
+                AppNavGraph(
+                    modifier = Modifier.fillMaxSize()
                 )
             }
         }
