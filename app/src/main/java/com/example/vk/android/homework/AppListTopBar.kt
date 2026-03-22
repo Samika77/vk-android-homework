@@ -32,7 +32,6 @@ fun AppListTopBar(
     onLeftIconClick: () -> Unit = {},
     onRightIconClick: () -> Unit = {},
 ) {
-    val interactionSource = remember { MutableInteractionSource() }
     Row(
         modifier = modifier
             .fillMaxWidth()
@@ -45,7 +44,7 @@ fun AppListTopBar(
             modifier = Modifier
                 .size(160.dp, 70.dp)
                 .clickable(
-                    interactionSource = interactionSource,
+                    interactionSource = remember { MutableInteractionSource() },
                     indication = ripple()
                 ) { onLeftIconClick() }
         ) {
@@ -61,7 +60,7 @@ fun AppListTopBar(
             modifier = Modifier
                 .size(36.dp)
                 .clickable(
-                    interactionSource = interactionSource,
+                    interactionSource = remember { MutableInteractionSource() },
                     indication = ripple()
                 ) { onRightIconClick() },
             shape = RoundedCornerShape(8.dp),

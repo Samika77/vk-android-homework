@@ -26,10 +26,10 @@ fun AppNavGraph(
     ) {
         composable(AppDestinations.APP_LIST_SCREEN) {
             AppListScreen(
-                modifier = Modifier.fillMaxSize(),
+                modifier = Modifier
+                    .fillMaxSize()
+                    .safeDrawingPadding(),
                 appList = appList,
-                onRuStoreClick = {},
-                onCategoriesClick = {},
                 onAppClick = { app ->
                     navController.navigate(AppDestinations.APP_DETAILS_SCREEN)
                 }
