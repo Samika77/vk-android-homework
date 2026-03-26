@@ -12,4 +12,5 @@
     <string name="app_details_read_more">Читать подробнее</string>
     <string name="app_details_developer">Разработчик</string>
     <string name="under_developement">В процессе разработки</string>
+    <string name="share_app_text">Скачай приложение «%1$s»!</string>
 </resources>
