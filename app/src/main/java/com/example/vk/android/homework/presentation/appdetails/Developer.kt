@@ -1,4 +1,4 @@
-package com.example.vk.android.homework
+package com.example.vk.android.homework.presentation.appdetails
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -14,6 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.vk.android.homework.R
 import com.example.vk.android.homework.ui.theme.VKAndroidHomeworkTheme
 
 @Composable

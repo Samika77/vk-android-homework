@@ -1,4 +1,4 @@
-package com.example.vk.android.homework
+package com.example.vk.android.homework.presentation.applist
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.WindowInsets

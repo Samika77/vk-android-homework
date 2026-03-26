@@ -1,4 +1,4 @@
-package com.example.vk.android.homework
+package com.example.vk.android.homework.presentation.appdetails
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
@@ -23,6 +23,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
+import com.example.vk.android.homework.presentation.appdetails.App
+import com.example.vk.android.homework.presentation.appdetails.Category
+import com.example.vk.android.homework.R
 import com.example.vk.android.homework.ui.theme.VKAndroidHomeworkTheme
 import kotlin.math.roundToInt
 
