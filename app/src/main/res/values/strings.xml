@@ -11,6 +11,8 @@
     <string name="app_details_description">Описание приложения</string>
     <string name="app_details_read_more">Читать подробнее</string>
     <string name="app_details_developer">Разработчик</string>
-    <string name="under_developement">В процессе разработки</string>
+    <string name="under_development">В процессе разработки</string>
     <string name="share_app_text">Скачай приложение «%1$s»!</string>
+    <string name="error_message">Ошибка!</string>
+    <string name="share_chooser_title">Поделиться через...</string>
 </resources>

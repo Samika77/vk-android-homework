@@ -5,14 +5,19 @@ import android.content.Intent
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.vk.android.homework.R
+import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 
 class AppDetailsViewModel : ViewModel() {
     private val _state = MutableStateFlow<AppDetailsState>(AppDetailsState.Loading)
     val state: StateFlow<AppDetailsState> = _state.asStateFlow()
+
+    private val _events = Channel<AppDetailsEvent>(Channel.BUFFERED)
+    val events = _events.receiveAsFlow()
 
     init {
         loadApp()
@@ -40,8 +45,21 @@ class AppDetailsViewModel : ViewModel() {
                 type = "text/plain"
                 putExtra(Intent.EXTRA_TEXT, shareText)
             }
-            context.startActivity(Intent.createChooser(intent, "Поделиться через..."))
+            context.startActivity(
+                Intent.createChooser(
+                    intent,
+                    context.getString(R.string.share_chooser_title)
+                )
+            )
         }
+    }
+
+    fun onInstallClick() {
+        viewModelScope.launch { showUnderDevelopmentSnackbar() }
+    }
+
+    fun onDeveloperClick() {
+        viewModelScope.launch { showUnderDevelopmentSnackbar() }
     }
 
     // В будущем заменим этот метод на вызов API.
@@ -60,4 +78,12 @@ class AppDetailsViewModel : ViewModel() {
         iconUrl = "https://static.rustore.ru/imgproxy/APsbtHxkVa4MZ0DXjnIkSwFQ_KVIcqHK9o3gHY6pvOQ/preset:web_app_icon_62/plain/https://static.rustore.ru/apk/393868735/content/ICON/3f605e3e-f5b3-434c-af4d-77bc5f38820e.png@webp",
         description = "Легендарный рейд героев в Фэнтези РПГ. Станьте героем гильдии и зразите мастера подземелья!"
     )
+
+    private suspend fun showUnderDevelopmentSnackbar() {
+        _events.send(
+            AppDetailsEvent.ShowSnackbar(
+                R.string.under_development
+            )
+        )
+    }
 }
