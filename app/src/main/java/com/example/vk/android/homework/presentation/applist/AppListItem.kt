@@ -2,8 +2,6 @@ package com.example.vk.android.homework.presentation.applist
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -81,10 +79,15 @@ fun AppListItem(
 @Composable
 fun AppListItemPreview() {
     VKAndroidHomeworkTheme {
-        LazyColumn {
-            items(appList) { app ->
-                AppListItem(app, onClick = {})
-            }
-        }
+        AppListItem(
+            app = AppItem(
+                id = "1",
+                name = "СберБанк Онлайн",
+                description = "Больше чем банк",
+                category = "Финансы",
+                icon = ""
+            ),
+            onClick = {}
+        )
     }
 }

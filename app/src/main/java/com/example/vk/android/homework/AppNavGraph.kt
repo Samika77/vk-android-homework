@@ -10,7 +10,6 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.vk.android.homework.presentation.appdetails.AppDetailsScreen
 import com.example.vk.android.homework.presentation.applist.AppListScreen
-import com.example.vk.android.homework.presentation.applist.appList
 
 object AppDestinations {
     const val APP_LIST_SCREEN = "app_list_screen"
@@ -32,7 +31,6 @@ fun AppNavGraph(
                 modifier = Modifier
                     .fillMaxSize()
                     .safeDrawingPadding(),
-                appList = appList,
                 onAppClick = { app ->
                     navController.navigate(AppDestinations.APP_DETAILS_SCREEN)
                 }
