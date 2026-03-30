@@ -25,13 +25,14 @@ class AppDetailsViewModel : ViewModel() {
 
     fun loadApp() {
         viewModelScope.launch {
+            _state.value = AppDetailsState.Loading
             runCatching {
-                _state.value = AppDetailsState.Loading
                 val app = getApp()
-                _state.value = AppDetailsState.Content(app)
-            }.onFailure {
-                _state.value = AppDetailsState.Error
-            }
+                AppDetailsState.Content(app)
+            }.fold(
+                onSuccess = { _state.value = it },
+                onFailure = { _state.value = AppDetailsState.Error }
+            )
         }
     }
 
