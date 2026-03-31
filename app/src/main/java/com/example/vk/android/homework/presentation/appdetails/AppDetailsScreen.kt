@@ -32,6 +32,7 @@ import com.example.vk.android.homework.ui.theme.VKAndroidHomeworkTheme
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.res.stringResource
 import com.example.vk.android.homework.R
+import com.example.vk.android.homework.domain.appdetails.App
 
 @Composable
 fun AppDetailsScreen(

@@ -1,6 +1,7 @@
-package com.example.vk.android.homework.presentation.appdetails
+package com.example.vk.android.homework.domain.appdetails
 
 data class App(
+    val id: String,
     val name: String,
     val developer: String,
     val category: Category,
