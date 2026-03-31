@@ -1,4 +1,4 @@
-package com.example.vk.android.homework.presentation.applist
+package com.example.vk.android.homework.domain.applist
 
 data class AppItem(
     val id: String,

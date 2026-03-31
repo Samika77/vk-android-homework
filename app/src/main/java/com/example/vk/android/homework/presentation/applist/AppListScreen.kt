@@ -29,6 +29,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.vk.android.homework.R
+import com.example.vk.android.homework.domain.applist.AppItem
 import com.example.vk.android.homework.ui.theme.VKAndroidHomeworkTheme
 
 @Composable

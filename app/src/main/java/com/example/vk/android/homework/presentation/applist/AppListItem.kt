@@ -19,6 +19,7 @@ import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.example.vk.android.homework.ui.theme.VKAndroidHomeworkTheme
 import androidx.compose.ui.text.style.TextOverflow
+import com.example.vk.android.homework.domain.applist.AppItem
 import com.example.vk.android.homework.ui.theme.VkCategoryGray
 
 @Composable
