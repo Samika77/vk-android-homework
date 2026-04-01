@@ -9,6 +9,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import com.example.vk.android.homework.R
+import com.example.vk.android.homework.data.CategoryMapper
 import com.example.vk.android.homework.data.applist.AppListApi
 import com.example.vk.android.homework.data.applist.AppListMapper
 import com.example.vk.android.homework.data.applist.AppListRepositoryImpl
@@ -16,7 +17,7 @@ import com.example.vk.android.homework.domain.applist.AppListRepository
 
 class AppListViewModel : ViewModel() {
     private val appListRepository: AppListRepository = AppListRepositoryImpl(
-        mapper = AppListMapper(),
+        mapper = AppListMapper(categoryMapper = CategoryMapper()),
         api = AppListApi(),
     )
     private val _state = MutableStateFlow<AppListState>(AppListState.Loading)

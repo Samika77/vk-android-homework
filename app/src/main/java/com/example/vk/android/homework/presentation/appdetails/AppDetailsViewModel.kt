@@ -8,7 +8,7 @@ import com.example.vk.android.homework.R
 import com.example.vk.android.homework.data.appdetails.AppDetailsApi
 import com.example.vk.android.homework.data.appdetails.AppDetailsMapper
 import com.example.vk.android.homework.data.appdetails.AppDetailsRepositoryImpl
-import com.example.vk.android.homework.data.appdetails.CategoryMapper
+import com.example.vk.android.homework.data.CategoryMapper
 import com.example.vk.android.homework.domain.appdetails.AppDetailsRepository
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow

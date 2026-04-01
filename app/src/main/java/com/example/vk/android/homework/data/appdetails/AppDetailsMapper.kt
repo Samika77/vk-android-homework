@@ -1,5 +1,6 @@
 package com.example.vk.android.homework.data.appdetails
 
+import com.example.vk.android.homework.data.CategoryMapper
 import com.example.vk.android.homework.domain.appdetails.App
 
 class AppDetailsMapper(

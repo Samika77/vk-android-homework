@@ -10,7 +10,7 @@ class AppDetailsApi {
             id = "bhbh11",
             name = "Гильдия Героев: Экшен ММО РПГ",
             developer = "VK Play",
-            category = "Game",
+            category = "Развлечения",
             ageRating = 12,
             size = 223.7f,
             screenshotUrlList = listOf(

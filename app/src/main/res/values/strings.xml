@@ -16,4 +16,10 @@
     <string name="error_message">Ошибка!</string>
     <string name="share_chooser_title">Поделиться через...</string>
     <string name="rustore_click">RuStore — магазин приложений для мобильных устройств!</string>
+    <string name="category_finance">Финансы</string>
+    <string name="category_communication">Общение</string>
+    <string name="category_services">Объявления и услуги</string>
+    <string name="category_transport">Транспорт и навигация</string>
+    <string name="category_entertainment">Развлечения</string>
+    <string name="category_utility">Полезные инструменты</string>
 </resources>

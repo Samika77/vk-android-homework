@@ -12,6 +12,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -19,6 +20,7 @@ import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.example.vk.android.homework.ui.theme.VKAndroidHomeworkTheme
 import androidx.compose.ui.text.style.TextOverflow
+import com.example.vk.android.homework.domain.Category
 import com.example.vk.android.homework.domain.applist.AppItem
 import com.example.vk.android.homework.ui.theme.VkCategoryGray
 
@@ -67,7 +69,7 @@ fun AppListItem(
                     overflow = TextOverflow.Ellipsis
                 )
                 Text(
-                    text = app.category,
+                    text = stringResource(app.category.categoryResId),
                     fontSize = 12.sp,
                     color = VkCategoryGray
                 )
@@ -85,7 +87,7 @@ fun AppListItemPreview() {
                 id = "1",
                 name = "СберБанк Онлайн",
                 description = "Больше чем банк",
-                category = "Финансы",
+                category = Category.FINANCE,
                 icon = ""
             ),
             onClick = {}

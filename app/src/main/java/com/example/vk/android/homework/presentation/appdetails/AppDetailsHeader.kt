@@ -24,7 +24,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.example.vk.android.homework.domain.appdetails.App
-import com.example.vk.android.homework.domain.appdetails.Category
+import com.example.vk.android.homework.domain.Category
 import com.example.vk.android.homework.R
 import com.example.vk.android.homework.ui.theme.VKAndroidHomeworkTheme
 import kotlin.math.roundToInt
@@ -87,10 +87,9 @@ fun AppDetailsHeader(
 }
 
 @Composable
-private fun getCategoryText(category: Category): String = when (category) {
-    Category.APP -> stringResource(R.string.category_app)
-    Category.GAME -> stringResource(R.string.category_game)
-}
+private fun getCategoryText(category: Category): String =
+    stringResource(category.categoryResId)
+
 
 @Preview
 @Composable
@@ -99,7 +98,7 @@ private fun Preview() {
         id = "bhbh",
         name = "Гильдия Героев: Экшен ММО РПГ",
         developer = "VK Play",
-        category = Category.GAME,
+        category = Category.ENTERTAINMENT,
         ageRating = 12,
         size = 223.7f,
         screenshotUrlList = listOf(
