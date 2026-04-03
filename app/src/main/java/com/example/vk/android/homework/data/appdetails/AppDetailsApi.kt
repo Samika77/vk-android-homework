@@ -1,13 +1,14 @@
 package com.example.vk.android.homework.data.appdetails
 
+import javax.inject.Inject
 import kotlinx.coroutines.delay
 
 // Представим вызов бэкенда
-class AppDetailsApi {
+class AppDetailsApi @Inject constructor() {
     suspend fun get(id: String): AppDetailsDto {
         delay(2000L)
         return AppDetailsDto(
-            id = "bhbh11",
+            id = "1",
             name = "Гильдия Героев: Экшен ММО РПГ",
             developer = "VK Play",
             category = "Развлечения",

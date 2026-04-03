@@ -1,7 +1,9 @@
 package com.example.vk.android.homework.data.applist
 
-class AppListApi {
-    suspend fun getAppList() : List<AppItemDto> {
+import javax.inject.Inject
+
+class AppListApi @Inject constructor() {
+    suspend fun getAppList(): List<AppItemDto> {
         return listOf(
             AppItemDto(
                 id = "1",

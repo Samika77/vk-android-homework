@@ -2,8 +2,9 @@ package com.example.vk.android.homework.data.appdetails
 
 import com.example.vk.android.homework.domain.appdetails.App
 import com.example.vk.android.homework.domain.appdetails.AppDetailsRepository
+import javax.inject.Inject
 
-class AppDetailsRepositoryImpl(
+class AppDetailsRepositoryImpl @Inject constructor(
     private val mapper: AppDetailsMapper,
     private val api: AppDetailsApi,
 ) : AppDetailsRepository {

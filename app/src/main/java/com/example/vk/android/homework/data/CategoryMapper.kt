@@ -1,8 +1,9 @@
 package com.example.vk.android.homework.data
 
 import com.example.vk.android.homework.domain.Category
+import javax.inject.Inject
 
-class CategoryMapper {
+class CategoryMapper @Inject constructor() {
     fun toDomain(category: String): Category = when (category.trim()) {
         "Финансы" -> Category.FINANCE
         "Общение" -> Category.COMMUNICATION

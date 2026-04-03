@@ -2,8 +2,9 @@ package com.example.vk.android.homework.data.appdetails
 
 import com.example.vk.android.homework.data.CategoryMapper
 import com.example.vk.android.homework.domain.appdetails.App
+import javax.inject.Inject
 
-class AppDetailsMapper(
+class AppDetailsMapper @Inject constructor(
     private val categoryMapper: CategoryMapper,
 ) {
     fun toDomain(dto: AppDetailsDto): App = App(

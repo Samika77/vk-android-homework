@@ -27,10 +27,10 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.vk.android.homework.ui.theme.VKAndroidHomeworkTheme
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.res.stringResource
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.vk.android.homework.R
 import com.example.vk.android.homework.domain.appdetails.App
 
@@ -39,7 +39,7 @@ fun AppDetailsScreen(
     modifier: Modifier = Modifier,
     onBackClick: () -> Unit,
 ) {
-    val viewModel: AppDetailsViewModel = viewModel()
+    val viewModel: AppDetailsViewModel = hiltViewModel()
     val state by viewModel.state.collectAsStateWithLifecycle()
     val context = LocalContext.current
     val onShareClick = {

@@ -5,11 +5,9 @@ import android.content.Intent
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.vk.android.homework.R
-import com.example.vk.android.homework.data.appdetails.AppDetailsApi
-import com.example.vk.android.homework.data.appdetails.AppDetailsMapper
-import com.example.vk.android.homework.data.appdetails.AppDetailsRepositoryImpl
-import com.example.vk.android.homework.data.CategoryMapper
 import com.example.vk.android.homework.domain.appdetails.AppDetailsRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -17,12 +15,10 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 
-class AppDetailsViewModel : ViewModel() {
-
-    private val appDetailsRepository: AppDetailsRepository = AppDetailsRepositoryImpl(
-        mapper = AppDetailsMapper(categoryMapper = CategoryMapper()),
-        api = AppDetailsApi(),
-    )
+@HiltViewModel
+class AppDetailsViewModel @Inject constructor(
+    private val appDetailsRepository: AppDetailsRepository
+) : ViewModel() {
     private val _state = MutableStateFlow<AppDetailsState>(AppDetailsState.Loading)
     val state: StateFlow<AppDetailsState> = _state.asStateFlow()
 

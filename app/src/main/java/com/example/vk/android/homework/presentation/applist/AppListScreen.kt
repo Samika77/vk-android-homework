@@ -26,8 +26,8 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.vk.android.homework.R
 import com.example.vk.android.homework.domain.applist.AppItem
 import com.example.vk.android.homework.ui.theme.VKAndroidHomeworkTheme
@@ -37,7 +37,7 @@ fun AppListScreen(
     modifier: Modifier = Modifier,
     onAppClick: (AppItem) -> Unit = {}
 ) {
-    val viewModel: AppListViewModel = viewModel()
+    val viewModel: AppListViewModel = hiltViewModel()
     val state by viewModel.state.collectAsStateWithLifecycle()
     val context = LocalContext.current
     val snackbarHostState = remember { SnackbarHostState() }
