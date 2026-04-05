@@ -2,15 +2,17 @@ package com.example.vk.android.homework.data.applist
 
 import com.example.vk.android.homework.domain.applist.AppItem
 import com.example.vk.android.homework.domain.applist.AppListRepository
-import javax.inject.Inject
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
-class AppListRepositoryImpl @Inject constructor(
+class AppListRepositoryImpl (
     private val mapper: AppListMapper,
     private val api: AppListApi
 ) : AppListRepository {
     override suspend fun getAppList(): List<AppItem> {
-        val dto = api.getAppList()
-        val domain = mapper.toDomain(dto)
-        return domain
+        return withContext(Dispatchers.IO) {
+            val dto = api.getAppList()
+            mapper.toDomain(dto)
+        }
     }
 }

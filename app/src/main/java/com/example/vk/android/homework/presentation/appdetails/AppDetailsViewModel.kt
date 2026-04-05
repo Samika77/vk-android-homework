@@ -2,6 +2,7 @@ package com.example.vk.android.homework.presentation.appdetails
 
 import android.content.Context
 import android.content.Intent
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.vk.android.homework.R
@@ -17,8 +18,10 @@ import kotlinx.coroutines.launch
 
 @HiltViewModel
 class AppDetailsViewModel @Inject constructor(
-    private val appDetailsRepository: AppDetailsRepository
+    private val appDetailsRepository: AppDetailsRepository,
+    private val savedStateHandle: SavedStateHandle
 ) : ViewModel() {
+    private val appId = savedStateHandle.get<String>("appId")!!
     private val _state = MutableStateFlow<AppDetailsState>(AppDetailsState.Loading)
     val state: StateFlow<AppDetailsState> = _state.asStateFlow()
 
@@ -33,7 +36,7 @@ class AppDetailsViewModel @Inject constructor(
         viewModelScope.launch {
             _state.value = AppDetailsState.Loading
             runCatching {
-                val app = appDetailsRepository.get(id = "тут будет id")
+                val app = appDetailsRepository.get(id = appId)
                 AppDetailsState.Content(app)
             }.fold(
                 onSuccess = { _state.value = it },

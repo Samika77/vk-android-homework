@@ -5,12 +5,24 @@ import javax.inject.Inject
 
 class CategoryMapper @Inject constructor() {
     fun toDomain(category: String): Category = when (category.trim()) {
+        "Производительность" -> Category.PRODUCTIVITY
+        "Здоровье и фитнес" -> Category.HEALTH_FITNESS
+        "Фото и видео" -> Category.PHOTO_VIDEO
+        "Еда и напитки" -> Category.FOOD_DRINKS
+        "Образование" -> Category.EDUCATION
+        "Образ жизни" -> Category.LIFESTYLE
+        "Шопинг" -> Category.SHOPPING
+        "Новости" -> Category.NEWS
+        "Музыка" -> Category.MUSIC
+        "Игры" -> Category.GAMES
         "Финансы" -> Category.FINANCE
+        "Утилиты" -> Category.UTILITY
+        "Навигация" -> Category.NAVIGATION
         "Общение" -> Category.COMMUNICATION
-        "Объявления и услуги" -> Category.SERVICES
-        "Транспорт и навигация" -> Category.TRANSPORT
+        "Бизнес" -> Category.BUSINESS
+        "Погода" -> Category.WEATHER
         "Развлечения" -> Category.ENTERTAINMENT
-        "Полезные инструменты" -> Category.UTILITY
-        else -> throw IllegalStateException("Unsupported category type: $category")
+        "Книги и справочники" -> Category.BOOKS
+        else -> Category.OTHER
     }
 }

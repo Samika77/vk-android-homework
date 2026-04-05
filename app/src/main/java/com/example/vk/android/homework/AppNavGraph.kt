@@ -6,14 +6,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.example.vk.android.homework.presentation.appdetails.AppDetailsScreen
 import com.example.vk.android.homework.presentation.applist.AppListScreen
 
 object AppDestinations {
     const val APP_LIST_SCREEN = "app_list_screen"
-    const val APP_DETAILS_SCREEN = "app_details_screen"
+    const val APP_DETAILS_SCREEN = "app_details_screen/{appId}"
 }
 
 @Composable
@@ -32,13 +34,27 @@ fun AppNavGraph(
                     .fillMaxSize()
                     .safeDrawingPadding(),
                 onAppClick = { app ->
-                    navController.navigate(AppDestinations.APP_DETAILS_SCREEN)
+                    navController.navigate(
+                        AppDestinations.APP_DETAILS_SCREEN.replace(
+                            "{appId}",
+                            app.id
+                        )
+                    )
                 }
             )
         }
 
-        composable(AppDestinations.APP_DETAILS_SCREEN) {
+        composable(
+            route = AppDestinations.APP_DETAILS_SCREEN,
+            arguments = listOf(
+                navArgument("appId") {
+                    type = NavType.StringType
+                }
+            )
+        ) { backStackEntry ->
+            val appId = backStackEntry.arguments?.getString("appId")!!
             AppDetailsScreen(
+                appId = appId,
                 modifier = Modifier
                     .fillMaxSize()
                     .safeDrawingPadding(),

@@ -36,6 +36,7 @@ import com.example.vk.android.homework.domain.appdetails.App
 
 @Composable
 fun AppDetailsScreen(
+    appId: String,
     modifier: Modifier = Modifier,
     onBackClick: () -> Unit,
 ) {
@@ -157,6 +158,7 @@ private fun AppDetailsContent(
 private fun Preview() {
     VKAndroidHomeworkTheme {
         AppDetailsScreen(
+            appId = "mimi",
             modifier = Modifier.fillMaxSize(),
             onBackClick = {},
         )

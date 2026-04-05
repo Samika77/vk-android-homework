@@ -1,5 +1,8 @@
 package com.example.vk.android.homework.data.appdetails
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class AppDetailsDto(
     val id: String,
     val name: String,
