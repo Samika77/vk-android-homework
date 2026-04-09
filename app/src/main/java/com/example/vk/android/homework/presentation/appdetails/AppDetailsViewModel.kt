@@ -13,6 +13,7 @@ import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 
@@ -29,20 +30,20 @@ class AppDetailsViewModel @Inject constructor(
     val events = _events.receiveAsFlow()
 
     init {
-        loadApp()
+        viewModelScope.launch {
+            loadApp()
+        }
     }
 
-    fun loadApp() {
-        viewModelScope.launch {
-            _state.value = AppDetailsState.Loading
-            runCatching {
-                val app = appDetailsRepository.get(id = appId)
-                AppDetailsState.Content(app)
-            }.fold(
-                onSuccess = { _state.value = it },
-                onFailure = { _state.value = AppDetailsState.Error }
-            )
-        }
+    private suspend fun loadApp() {
+        _state.value = AppDetailsState.Loading
+        appDetailsRepository.get(appId)
+            .catch {
+                _state.value = AppDetailsState.Error
+            }
+            .collect { appDetails ->
+                _state.value = AppDetailsState.Content(app = appDetails)
+            }
     }
 
     fun shareApp(context: Context) {
